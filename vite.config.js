@@ -6,11 +6,17 @@ import { compile } from "sass";
 import postcss from "postcss";
 import url from "postcss-url";
 
+const name = "PT站M-Team的高贵樱花粉、云朵白主题";
 const port = 48966;
 
 const r = fs.readFileSync("node_modules/vite-userscript-plugin/dist/index.js", "utf8");
-if (r.includes("minify: !isBuildWatch")) {
-	fs.writeFileSync("node_modules/vite-userscript-plugin/dist/index.js", r.replace(/minify: !isBuildWatch/g, "minify: false"));
+if (r.includes("minify: !isBuildWatch") || r.includes("const sanitizedFilename = output.sanitizeFileName(fileName);")) {
+	fs.writeFileSync(
+		"node_modules/vite-userscript-plugin/dist/index.js",
+		r
+			.replace(/minify: !isBuildWatch/g, "minify: false")
+			.replace("const sanitizedFilename = output.sanitizeFileName(fileName);", "const sanitizedFilename = 'mteam-theme';"),
+	);
 	console.warn("请重新运行。");
 	process.exit(0);
 }
@@ -44,7 +50,7 @@ export default defineConfig((config) => {
 			Userscript({
 				entry: "src/index.js",
 				header: {
-					name: "PT站M-Team的高贵樱花粉、云朵白主题",
+					name: name,
 					namespace: "https://mteam-theme-sakura.github.io",
 					description: "非常高贵的 —— 又高又贵的 M-Team 主题，你问我为什么高贵？你猜猜？",
 					license: "WTFPL",
@@ -60,6 +66,17 @@ export default defineConfig((config) => {
 					port: port,
 				},
 			}),
+			{
+				name: "rename",
+				closeBundle() {
+					fs.readdirSync("dist").map((file) => {
+						if (file.includes(name)) {
+							const newName = name.replace(name, "mteam-theme");
+							fs.renameSync(`dist/${file}`, `dist/${newName}`);
+						}
+					});
+				},
+			},
 		],
 	};
 });
