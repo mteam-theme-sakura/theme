@@ -59,7 +59,7 @@ export default defineConfig((config) => {
 					version: new Date().toLocaleString().replace(/[/:]/g, "").replace(" ", "."),
 					author: "Dark495",
 					icon: "https://m-team.syzx.me/assets/img/wtf.png",
-					match: ["https://kp.m-team.cc/*", "https://xp.m-team.cc/*", "https://kp.m-team.io/*"],
+					match: ["https://kp.m-team.cc/*", "https://xp.m-team.cc/*", "https://zp.m-team.io/*"],
 					grant: ["GM_addStyle"],
 				},
 				server: {
