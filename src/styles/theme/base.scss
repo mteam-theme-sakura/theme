@@ -1,0 +1,209 @@
+@mixin theme-base($color0, $color1, $color2, $color3, $color4, $background) {
+	background: $background;
+
+	// 全局
+	*,
+	::before,
+	::after,
+	:root {
+		--bg-1: #{$color0};
+		--bg-2: #{rgba(white, 0.5)};
+		--bg-3: #{$color2};
+	}
+	.bg-mt-gray {
+		background: rgba(white, 0.5);
+	}
+	.bg-mt-primary-3 {
+		background: white;
+	}
+
+	.loader-container {
+		background-color: $color0;
+	}
+
+	// logo变色
+	#app-content a[href="/index"] img[alt="LOGO"] {
+		filter: hue-rotate(293deg) brightness(110%);
+	}
+
+	// 全局卡片
+	.ant-card {
+		background: rgb($color2, 0.05);
+		backdrop-filter: blur(15px);
+		box-shadow: 0 0 10px 1px rgb(0 0 0 / 5%) !important;
+
+		.ant-card-head {
+			background: rgba(white, 0.5);
+			backdrop-filter: blur(15px);
+			border-bottom: 1px dashed rgba($color1, 0.15) !important;
+		}
+		.ant-card-bordered {
+			border: 1px solid $color2 !important;
+		}
+	}
+
+	// header
+	.ant-menu {
+		border-bottom: 1px dashed !important;
+		border-bottom-color: rgba($color1, 0.5) !important;
+
+		&.ant-menu-sub,
+		&.ant-menu-submenu {
+			border-bottom: none !important;
+		}
+
+		.ant-menu-submenu-selected,
+		.ant-menu-item-selected,
+		.ant-menu-item-active,
+		.ant-menu-submenu-active {
+			color: $color1 !important;
+
+			&::after {
+				border-bottom-color: rgba($color1, 0.5) !important;
+			}
+		}
+	}
+
+	// 表格颜色
+	.bg-\[\#2f4879\],
+	.ant-table-thead > tr > th,
+	.colhead,
+	table.tablist thead td {
+		background: rgba($color2, 1) !important;
+		color: white;
+	}
+	.bg-\[\#bccad6\],
+	.ant-table {
+		background: rgba(white, 0.8) !important;
+	}
+	.ant-table-row:hover .ant-table-cell {
+		background: rgba(black, 0.05) !important;
+	}
+	.ant-table-placeholder,
+	.ant-table-placeholder td {
+		background: rgba(white, 0.8) !important;
+		&:hover {
+			background: rgba(black, 0.01) !important;
+		}
+	}
+	.bg-sticky_normal {
+		background: rgba($color3, 0.3);
+	}
+	.bg-sticky_top {
+		background: rgba($color4, 0.5);
+	}
+	.ant-tag.mt-default {
+		border: 1px solid rgba(black, 0.15);
+		line-height: 12px;
+	}
+	.ant-table-title {
+		border: 1px solid #000 !important;
+		border-bottom: none !important;
+	}
+
+	// 消除额外margin
+	.app-content__inner {
+		padding-block: 0 !important;
+
+		> .mx-auto {
+			margin: 0 !important;
+		}
+
+		&::after {
+			background: transparent !important;
+		}
+	}
+
+	// tabs
+	.ant-tabs {
+		.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+			color: $color1 !important;
+		}
+		.ant-tabs-ink-bar {
+			background: $color1 !important;
+		}
+		.ant-tabs-tab:hover {
+			color: rgba($color1, 0.5) !important;
+		}
+	}
+
+	// 按钮
+	.ant-btn-color-primary {
+		background: $color2;
+		&.ant-btn-background-ghost {
+			background: transparent;
+		}
+		&:hover {
+			background: rgba($color2, 0.5) !important;
+		}
+	}
+	.ant-btn-variant-outlined:not(:disabled):not(.ant-btn-disabled):hover,
+	.ant-btn-variant-dashed:not(:disabled):not(.ant-btn-disabled):hover {
+		color: $color1 !important;
+		border-color: $color2 !important;
+	}
+
+	// form
+	.ant-input-outlined:hover {
+		border-color: $color2;
+	}
+	.ant-input-outlined:focus,
+	.ant-input-outlined:focus-within {
+		box-shadow: 0 0 0 2px rgba($color2, 0.33);
+		border-color: $color2;
+	}
+	.ant-checkbox-checked .ant-checkbox-inner {
+		background: $color2;
+		border-color: $color2;
+	}
+	.ant-checkbox-wrapper:not(.ant-checkbox-wrapper-disabled):hover .ant-checkbox-inner {
+		border-color: $color2;
+	}
+	.ant-checkbox-wrapper:not(.ant-checkbox-wrapper-disabled):hover .ant-checkbox-checked:not(.ant-checkbox-disabled) .ant-checkbox-inner {
+		background: $color2;
+	}
+	.ant-switch.ant-switch-checked:not(.ant-switch-disabled) {
+		background: $color2;
+		&:hover {
+			background: rgba($color2, 0.5) !important;
+		}
+	}
+	.ant-radio-wrapper .ant-radio-checked .ant-radio-inner {
+		background: $color2;
+		border-color: $color2;
+	}
+	.ant-radio-wrapper:hover .ant-radio-wrapper,
+	.ant-radio-wrapper:hover .ant-radio-inner {
+		border-color: $color2;
+	}
+	.ant-checkbox-indeterminate .ant-checkbox-inner:after {
+		background-color: $color2;
+	}
+
+	// 替换
+	.ant-descriptions-item-label {
+		color: black !important;
+		font-weight: bolder !important;
+	}
+	.ant-descriptions-item-content {
+		color: black !important;
+	}
+	.ant-spin .ant-spin-dot-holder {
+		color: $color2;
+	}
+	.ant-modal {
+		.ant-modal-content {
+			background: white !important;
+		}
+		.ant-modal-header {
+			background: transparent !important;
+			border-bottom: 1px dashed rgba($color1, 0.5) !important;
+			padding-bottom: 8px;
+		}
+	}
+	.slick-slider {
+		.bg-mt-primary-3 {
+			background: $color2;
+		}
+	}
+}

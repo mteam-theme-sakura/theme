@@ -1,0 +1,5 @@
+@use "./base.scss" as *;
+
+body[data-theme="sakura"] {
+	@include theme-base(#fffbfa, #e91e63, #faa9bd, #38bdf8, #ffd58e, #fffbfa url("../../img/background/sakura.png") repeat !important);
+}

@@ -1,0 +1,17 @@
+{
+	"name": "mteam-theme",
+	"version": "20250530",
+	"devDependencies": {
+		"postcss": "^8.5.4",
+		"postcss-url": "^10.1.3",
+		"sass": "^1.89.0",
+		"vite-userscript-plugin": "^1.11.0"
+	},
+	"scripts": {
+		"dev": "vite build --watch --mode development",
+		"build": "vite build"
+	},
+	"dependencies": {
+		"vite": "^6.3.5"
+	}
+}

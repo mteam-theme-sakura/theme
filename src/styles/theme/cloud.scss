@@ -1,0 +1,47 @@
+@use "./base.scss" as *;
+
+body[data-theme="cloud"] {
+	@include theme-base(
+		#fffbfa,
+		#409eff,
+		#409eff,
+		#38bdf8,
+		#ffd58e,
+		#caced9 url("../../img/background/white.svg") no-repeat fixed center / cover !important
+	);
+
+	.bg-mt-gray {
+		background: rgba(black, 0.05);
+	}
+
+	#app-content a[href="/index"] img[alt="LOGO"] {
+		filter: hue-rotate(161deg) brightness(98%);
+	}
+
+	.bg-\[\#2f4879\],
+	.ant-table-thead > tr > th,
+	.colhead,
+	table.tablist thead td {
+		background: rgba(#66ccff, 0.5) !important;
+		color: black !important;
+	}
+
+	.ant-card {
+		//border-radius: 40px;
+		backdrop-filter: none;
+		background: rgba(white, 0.6);
+		box-shadow: 0 4px 19px rgba(0, 0, 0, 0.03) !important;
+		.ant-card-head {
+			//border-radius: 40px 40px 0 0;
+		}
+	}
+
+	.bg-\[\#bccad6\],
+	.ant-table {
+		background: rgba(white, 0.6) !important;
+	}
+
+	.editor-container {
+		border: 1px solid #d9d9d9;
+	}
+}
